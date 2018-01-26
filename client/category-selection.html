@@ -1,14 +1,13 @@
-<template name="goals">
-    <h1>My Goals</h1>
+<template name="categorySelection">
+    <h1>What is your next objective?</h1>
 
-    {{#each goals}}
-        {{> goal}}
+    {{#each categories}}
+        {{> category}}
     {{/each}}
 </template>
 
-<template name="goal">
+<template name="category">
     <div class="panel panel-default">
-
         <div class="panel-heading">
             <h3>{{title}}</h3>
         </div>

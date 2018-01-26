@@ -22,14 +22,14 @@ FlowRouter.route('/logout', {
 FlowRouter.route('/', {
     name: 'root',
     action() {
-        FlowRouter.go("/goals");
+        FlowRouter.go("/category-selection");
     }
 });
 
-FlowRouter.route('/goals', {
-    name: 'goals',
+FlowRouter.route('/category-selection', {
+    name: 'categorySelection',
     action() {
-        BlazeLayout.render('Layout', {main: 'goals'});
+        BlazeLayout.render('Layout', {main: 'categorySelection'});
     }
 });
 
