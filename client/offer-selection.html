@@ -1,4 +1,10 @@
 <template name="offerSelection">
     <h3>The chart comes here</h3>
-    <h3>The offer selection input comes here</h3>
+    <div class="col-md-2">
+        <select class="form-control">
+            {{#each offers}}
+                <option class="offer-option">{{bank_id}} - {{effective_interest_rate}}% pa</option>
+            {{/each}}
+        </select>
+    </div>
 </template>
