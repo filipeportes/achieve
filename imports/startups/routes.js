@@ -39,3 +39,10 @@ FlowRouter.route('/goal', {
         BlazeLayout.render('Layout', {main: 'goal'});
     }
 });
+
+FlowRouter.route('/offer-selection', {
+    name: 'offer selection',
+    action() {
+        BlazeLayout.render('Layout', {main: 'offerSelection'});
+    }
+});
