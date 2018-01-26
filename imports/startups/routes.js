@@ -33,7 +33,7 @@ FlowRouter.route('/category-selection', {
     }
 });
 
-FlowRouter.route('/goal', {
+FlowRouter.route('/goal/:categoryId', {
     name: 'next goal',
     triggersEnter: [AccountsTemplates.ensureSignedIn],
     action() {
