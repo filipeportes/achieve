@@ -35,6 +35,7 @@ FlowRouter.route('/category-selection', {
 
 FlowRouter.route('/goal', {
     name: 'next goal',
+    triggersEnter: [AccountsTemplates.ensureSignedIn],
     action() {
         BlazeLayout.render('Layout', {main: 'goal'});
     }
@@ -42,6 +43,7 @@ FlowRouter.route('/goal', {
 
 FlowRouter.route('/offer-selection', {
     name: 'offer selection',
+    triggersEnter: [AccountsTemplates.ensureSignedIn],
     action() {
         BlazeLayout.render('Layout', {main: 'offerSelection'});
     }
