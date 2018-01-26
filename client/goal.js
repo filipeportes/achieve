@@ -21,10 +21,8 @@ Template.goal.events({
         } else if (event.target.amount.value == '') {
             window.alert("Amount to spend is missing")
         } else {
-            //window.alert(event.target.duration.value + '\n' + event.target.amount.value);
             var duration = event.target.duration.value;
             var amount = event.target.amount.value;
-            window.alert('vor insert');
 
             var goalId = Goals.insert({
                 'categoryID': categoryId, 'amount': amount,
@@ -32,7 +30,6 @@ Template.goal.events({
             });
 
             console.log(goalId);
-
             FlowRouter.go("/offer-selection/" + goalId);
         }
     }
