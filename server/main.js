@@ -40,15 +40,15 @@ Meteor.startup(() => {
     let categoriesCount = Categories.find().count();
     if (categoriesCount == 0) {
     	Categories.insert({title: "New car", createdAt: new Date(), description: "Achieve the car you ever wanted",
-            value: "€ 50.000", imageSource: "/assets/images/categories/car.jpg"});
+            value: "50000", imageSource: "/assets/images/categories/car.jpg"});
     	Categories.insert({title: "Dream Travel", createdAt: new Date(), description: "You deserve some rest",
-            value: "€ 4.000", imageSource: "/assets/images/categories/travel.jpeg"});
+            value: "4000", imageSource: "/assets/images/categories/travel.jpeg"});
         Categories.insert({title: "House", createdAt: new Date(), description: "Live in your dream house",
-            value: "€ 200.000", imageSource: "/assets/images/categories/house.png"});
+            value: "200000", imageSource: "/assets/images/categories/house.png"});
     	Categories.insert({title: "iPhone X", createdAt: new Date(),  description: "Be another Mac fag",
-            value: "€ 2.000", imageSource: "/assets/images/categories/iphoneX.png"});
+            value: "2000", imageSource: "/assets/images/categories/iphoneX.png"});
         Categories.insert({title: "BVG Shoes", createdAt: new Date(), description: "They should pay you to use it",
-            value: "€ 1.000", imageSource: "/assets/images/categories/Sneakers.png"});
+            value: "1000", imageSource: "/assets/images/categories/Sneakers.png"});
 
         console.log("Categories created: " + Categories.find().count());
     }
