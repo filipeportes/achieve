@@ -13,9 +13,10 @@ Template.goal.events({
 		if(event.target.name=="b1"){
 			window.alert(event.target.duration.value);
 		}
-		
+
+        FlowRouter.go("/offer-selection", {}, { goalId: this._id });
 		//if(event.target.text.value==""){
-		///	window.alert(event.target.amount);	
+		///	window.alert(event.target.amount);
 		//}
 	}
 })
