@@ -4,7 +4,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 
 Template.offerSelection.helpers({
     offers() {
-        return Offers.find({}, { bank_id: 1 });
+        return Offers.find({}, { bank_name: 1 });
     }
 });
 
@@ -25,9 +25,11 @@ Template.offerSelection.onRendered(function() {
     let labels = new Array();
     let currentDate = new Date();
 
+    let sum = installmentValue;
     for (let i = 0; i < goal.duration; i++) {
-        installments.push(installmentValue);
+        installments.push(sum);
         labels.push((currentDate.getMonth() % 12) + 1);
+        sum += installmentValue;
     }
 
     // Set the data
