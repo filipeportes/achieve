@@ -26,8 +26,8 @@ Template.offerSelection.events({
         datasets: [{
             label: "Normal",
             fillColor: "rgba(220,220,220,0.2)",
-            strokeColor: "rgba(220,220,220,1)",
-            pointColor: "rgba(220,220,220,1)",
+            strokeColor: "rgba(255,100,100,1)",
+            pointColor: "rgba(150,00,150,1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
@@ -35,7 +35,7 @@ Template.offerSelection.events({
         }, {
             label: "with Offer",
             fillColor: "rgba(151,187,205,0.2)",
-            strokeColor: "rgba(151,187,205,1)",
+            strokeColor: "rgba(100,255,100,1)",
             pointColor: "rgba(151,187,205,1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
@@ -97,11 +97,6 @@ Template.offerSelection.events({
     new Chart(ctx)
         .Line(data, options);
 
-
-
-
-
-
   }
 });
 
@@ -117,7 +112,7 @@ Template.offerSelection.onRendered(function() {
         datasets: [{
             label: "Normal",
             fillColor: "rgba(220,220,220,0.2)",
-            strokeColor: "rgba(220,220,220,1)",
+            strokeColor: "rgba(255,100,100,1)",
             pointColor: "rgba(220,220,220,1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
