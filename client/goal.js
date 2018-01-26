@@ -9,14 +9,13 @@ Template.goal.helpers({
 });
 
 Template.goal.events({
-	"click .new-goal"(event){
-		if(event.target.name=="b1"){
-			window.alert(event.target.duration.value);
-		}
+	'submit .new-goal'(event){
+		if(event.target.b1.name=='b1'){
+			window.alert(event.target.duration.value + '\n' + event.target.amount.value);
+      var duration = event.target.duration.value;
+      var amount = event.target.amount.value;
 
-        FlowRouter.go("/offer-selection", {}, { goalId: this._id });
-		//if(event.target.text.value==""){
-		///	window.alert(event.target.amount);
-		//}
+      FlowRouter.go("/offer-selection", {}, { goalId: this._id });
+	   }
 	}
 })
