@@ -1,16 +1,31 @@
 <template name="offerSelection">
 
 	<div class="row-fluid">
-        <canvas id="chartCanvas" width="800" height="500"></canvas>
+        <canvas id="chartCanvas" width="500" height="300"></canvas>
     </div>
 
-    <div style="margin:0 auto;" class="col-md-2">
-        <select id="offerSelect"  class="form-control">
-            <option class="offer-option">Select Offer</option>
-            {{#each offers}}
-                <option class="offer-option">{{bank_name}} - {{effective_interest_rate}}% pa</option>
-            {{/each}}
-        </select>
+    <div class="row">
+        <div style="margin:0 auto;" class="col-md-2">
+
+        </div>
     </div>
+    <form class="new-goal" role="form">
+        <div class="form-group">
+            <label align="left">Select a product</label>
+            <select id="offerSelect" class="form-control offerSelect" style="width: 300px;">
+                <option class="offer-option">Select Offer</option>
+                {{#each offers}}
+                    <option class="offer-option">{{bank_name}} - {{effective_interest_rate}}% pa</option>
+                {{/each}}
+            </select>
+            <br/>
+            <label>Initial deposit?</label>
+            <input type="text" name="duration" style="width: 300px;"
+                   placeholder="Enter the initial deposit value" class="form-control" />
+            <label align="left">Montly deposit?</label>
+            <input type="text" name="duration" style="width: 300px;"
+                   value="{{monthlyDeposit}}" class="form-control" />
+        </div>
+    </form>
 
 </template>

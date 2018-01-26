@@ -29,7 +29,6 @@ Template.goal.events({
                 'duration': duration, 'userId': Meteor.userId()
             });
 
-            console.log(goalId);
             FlowRouter.go("/offer-selection/" + goalId);
         }
     }
