@@ -30,9 +30,9 @@ Meteor.startup(() => {
 
     let categoriesCount = Categories.find().count();
     if (categoriesCount == 0) {
-    	Offers.insert({title: "Car", createdAt: new Date(), imageSource: "/assets/images/categories/car.png"});
-    	Offers.insert({title: "Travel", createdAt: new Date(), imageSource: "/assets/images/categories/travel.png"});
-    	Offers.insert({title: "iGadgets", createdAt: new Date(), imageSource: "/assets/images/categories/igadgets.png"});
+    	Categories.insert({title: "Car", createdAt: new Date(), imageSource: "/assets/images/categories/car.png"});
+    	Categories.insert({title: "Travel", createdAt: new Date(), imageSource: "/assets/images/categories/travel.png"});
+    	Categories.insert({title: "iGadgets", createdAt: new Date(), imageSource: "/assets/images/categories/igadgets.png"});
     }
 
 });
