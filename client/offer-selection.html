@@ -1,4 +1,5 @@
 <template name="offerSelection">
+
     <div id="chartDiv">
  		<canvas id="myChart" width="50" height="50"></canvas>
 	</div>
@@ -60,4 +61,13 @@
 	    }
 	});
 	</script>
+
+    <div class="col-md-2">
+        <select class="form-control">
+            {{#each offers}}
+                <option class="offer-option">{{bank_id}} - {{effective_interest_rate}}% pa</option>
+            {{/each}}
+        </select>
+    </div>
+
 </template>
