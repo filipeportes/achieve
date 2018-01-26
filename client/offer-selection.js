@@ -11,3 +11,14 @@ Template.offerSelection.helpers({
         return Goals.findOne({ _id: goalId });
     }
 });
+
+
+
+Template.offerSelection.events({
+  "change #offerSelect": function(event, template){
+    var selectValue = template.$("#offerSelect").val();
+    console.log(selectValue);
+    alert(selectValue);
+  }
+});
+
