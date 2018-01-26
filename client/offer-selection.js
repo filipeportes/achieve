@@ -36,8 +36,8 @@ Template.offerSelection.onRendered(function() {
         datasets: [{
             label: "Normal",
             fillColor: "rgba(220,220,220,0.2)",
-            strokeColor: "rgba(220,220,220,1)",
-            pointColor: "rgba(220,220,220,1)",
+            strokeColor: "rgba(255,100,100,1)",
+            pointColor: "rgba(150,00,150,1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
