@@ -6,3 +6,9 @@ Template.categorySelection.helpers({
     }
 });
 
+Template.categorySelection.events({
+	'click .category'() {
+		// TODO Here
+		alert(this.title);
+	},
+});
