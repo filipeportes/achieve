@@ -9,6 +9,6 @@ Template.categorySelection.helpers({
 
 Template.categorySelection.events({
 	'click .category'() {
-      FlowRouter.go("/goal", {}, { categoryId: this._id });
+      FlowRouter.go("/goal/" + this._id);
 	},
 });
