@@ -3,6 +3,7 @@ import {HTTP} from 'meteor/http';
 
 import {Categories} from '../imports/api/categories.js';
 import {Offers} from '../imports/api/offers.js';
+import {Goals} from '../imports/api/goals.js';
 
 Meteor.startup(() => {
 
