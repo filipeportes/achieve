@@ -41,7 +41,7 @@ FlowRouter.route('/goal/:categoryId', {
     }
 });
 
-FlowRouter.route('/offer-selection', {
+FlowRouter.route('/offer-selection/:goalId', {
     name: 'offer selection',
     triggersEnter: [AccountsTemplates.ensureSignedIn],
     action() {
