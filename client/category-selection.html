@@ -1,16 +1,27 @@
 <template name="categorySelection">
-    <h1>What is your next objective?</h1>
+    <h2 class="text-center">What is your next objective?</h2>
 
-    {{#each categories}}
-        {{> category}}
-    {{/each}}
+    <div class="row">
+        {{#each categories}}
+            {{> category}}
+        {{/each}}
+    </div>
 </template>
 
 <template name="category">
-    <div class="container-fluid">
-        <div class="col-md-4 category">
-            <p class="title">{{title}}</p>
-            <img src="{{imageSource}}" />
+
+    <div class="col-md-4 col-sm-12 fh5co-tours animate-box fadeInUp animated" data-animate-effect="fadeIn">
+        <div href="#">
+            <img src="{{imageSource}}" class="img-responsive">
+            <div class="desc">
+                <span></span>
+                <h3>{{title}}</h3>
+                <span>{{description}}</span>
+                <span class="price">{{value}}</span>
+                <a class="btn btn-primary btn-outline category" href="#">
+                    Achieve Now<i class="glyphicon glyphicon-arrow-right"></i>
+                </a>
+            </div>
         </div>
     </div>
 </template>
