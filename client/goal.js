@@ -7,3 +7,15 @@ Template.goal.helpers({
     return Categories.findOne({ _id: categoryId });
   }
 });
+
+Template.goal.events({
+	"click .new-goal"(event){
+		if(event.target.name=="b1"){
+			window.alert(event.target.duration.value);
+		}
+		
+		//if(event.target.text.value==""){
+		///	window.alert(event.target.amount);	
+		//}
+	}
+})
