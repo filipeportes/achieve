@@ -21,6 +21,15 @@ Meteor.startup(() => {
                 console.error(error);
             } else {
                 _.each(response.data, function (offer) {
+                    var res = HTTP.call("GET", "https://bonding.testraisin.com/rcba/v1/bank/" + offer.bank_id, {
+                            headers: {
+                                "Accept": "application/json",
+                                "Content-Type": "application/json",
+                                "Authorization": "Bearer bonding1",
+                            }
+                        });
+                    offer.bank_name = res.data.display_name;
+
                     Offers.insert(offer);
                 });
 
