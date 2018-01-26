@@ -5,3 +5,14 @@ Template.offerSelection.helpers({
         return Offers.find({}, { bank_id: 1 });
     }
 });
+
+
+
+Template.offerSelection.events({
+  "change #offerSelect": function(event, template){
+    var selectValue = template.$("#offerSelect").val();
+    console.log(selectValue);
+    alert(selectValue);
+  }
+});
+
