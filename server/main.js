@@ -33,6 +33,8 @@ Meteor.startup(() => {
     	Categories.insert({title: "Car", createdAt: new Date(), imageSource: "/assets/images/categories/car.png"});
     	Categories.insert({title: "Travel", createdAt: new Date(), imageSource: "/assets/images/categories/travel.png"});
     	Categories.insert({title: "iGadgets", createdAt: new Date(), imageSource: "/assets/images/categories/igadgets.png"});
+
+        console.log("Categories created: " + Categories.find().count());
     }
 
 });

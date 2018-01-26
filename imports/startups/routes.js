@@ -27,7 +27,7 @@ FlowRouter.route('/', {
 });
 
 FlowRouter.route('/category-selection', {
-    name: 'categorySelection',
+    name: 'category-selection',
     action() {
         BlazeLayout.render('Layout', {main: 'categorySelection'});
     }
