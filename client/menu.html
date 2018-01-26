@@ -1,6 +1,16 @@
 <template name="menu">
     <header>
         <nav class="navbar-inverse">
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    {{#if currentUser}}
+                        <li><a href="/logout">Logout</a></li>
+                    {{else}}
+                        <li><a href="/sign-in">Login</a></li>
+                        <li><a href="/sign-up">Sign-Up</a></li>
+                    {{/if}}
+                </ul>
+            </div>
             <ul class="nav nav-pills">
                 <li>
                     <a class="nav-item" href="/notes">Notes</a>
