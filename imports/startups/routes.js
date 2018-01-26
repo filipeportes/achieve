@@ -33,3 +33,9 @@ FlowRouter.route('/category-selection', {
     }
 });
 
+FlowRouter.route('/goal', {
+    name: 'next goal',
+    action() {
+        BlazeLayout.render('Layout', {main: 'goal'});
+    }
+});
