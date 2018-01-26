@@ -7,7 +7,7 @@ Template.offerSelection.helpers({
         return Offers.find({}, { bank_id: 1 });
     },
     goal() {
-        let goalId = FlowRouter.getQueryParam('goalId');
+        let goalId = FlowRouter.current().params['goalId'];
         return Goals.findOne({ _id: goalId });
     }
 });
@@ -15,7 +15,7 @@ Template.offerSelection.helpers({
 Template.offerSelection.events({
   "change #offerSelect": function(event, template){
     var selectValue = template.$("#offerSelect").val();
-    
+
 
      var ctx = document.getElementById("chartCanvas")
         .getContext('2d');
