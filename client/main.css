@@ -1,1 +1,16 @@
 /* CSS declarations go here */
+.category {
+    padding: 7px;
+    border: solid 1px black;
+    border-radius: 5px;
+    background-color: #FAFAFA;
+    text-align:  center;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.category p.title {
+    font-size:  30px;
+    font-weight:  bold;
+    margin: 0;
+}
