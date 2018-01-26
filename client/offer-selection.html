@@ -4,66 +4,9 @@
  		<canvas id="myChart" width="50" height="50"></canvas>
 	</div>
 
-    <h3>The offer selection input comes here</h3>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js">  </script>
-	<script>
-	var ctx = document.getElementById("myChart").getContext('2d');
-	console.log(ctx);
-	var myChart = new Chart(ctx, {
-	    type: 'line',
-	    data: {
-	        labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-	        datasets: [{
-	            label: 'Investment',
-	            fill:false,
-	            lineTension:0,
-	            data: [100, 110, 105, 110, 125, 100,115,110,110,120,100,90],
-	            borderColor: [
-	                'rgba(255,99,132,1)',
-	                'rgba(54, 162, 235, 1)',
-	                'rgba(255, 206, 86, 1)',
-	                'rgba(75, 192, 192, 1)',
-	                'rgba(153, 102, 255, 1)',
-	                'rgba(255, 159, 64, 1)'
-	            ],
-	            borderWidth: 2
-	        },
-	        {
-	            label: 'Hello',
-	            fill:false,
-	            lineTension:0,
-	            data: [12,34,56,78,90],
-	            borderColor: [
-	                'rgba(255,99,132,1)',
-	                'rgba(54, 162, 235, 1)',
-	                'rgba(255, 206, 86, 1)',
-	                'rgba(75, 192, 192, 1)',
-	                'rgba(153, 102, 255, 1)',
-	                'rgba(255, 159, 64, 1)'
-	            ],
-	            borderWidth: 2
-	        }
-
-
-	        ]
-	    },
-	    options: {
-	        scales: {
-	            yAxes: [{
-	                ticks: {
-	                    beginAtZero:true
-	                }
-	            }]
-	        }
-
-	        
-	    }
-	});
-	</script>
-
     <div class="col-md-2">
-        <select class="form-control">
+        <select id="offerSelect"  class="form-control">
+        	<option class="offer-option">Select Offer</option>
             {{#each offers}}
                 <option class="offer-option">{{bank_id}} - {{effective_interest_rate}}% pa</option>
             {{/each}}

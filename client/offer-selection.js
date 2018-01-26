@@ -12,8 +12,6 @@ Template.offerSelection.helpers({
     }
 });
 
-
-
 Template.offerSelection.events({
   "change #offerSelect": function(event, template){
     var selectValue = template.$("#offerSelect").val();
@@ -21,4 +19,5 @@ Template.offerSelection.events({
     alert(selectValue);
   }
 });
+
 
