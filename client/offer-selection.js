@@ -28,7 +28,7 @@ Template.offerSelection.onRendered(function() {
     let sum = installmentValue;
     for (let i = 0; i < goal.duration; i++) {
         installments.push(sum);
-        labels.push((currentDate.getMonth() % 12) + 1);
+        labels.push(((currentDate.getMonth() + i) % 12) + 1);
         sum += installmentValue;
     }
 
