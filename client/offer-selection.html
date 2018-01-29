@@ -1,31 +1,31 @@
 <template name="offerSelection">
 
-	<div class="row-fluid">
-        <canvas id="chartCanvas" width="500" height="300"></canvas>
-    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2" align="center">
+                <canvas id="chartCanvas" width="500" height="300" style="max-height: 300px; max-width: 500px; padding: 0px"></canvas>
+                <br/>
+                <form class="new-goal" role="form">
+                    <div class="form-group">
+                        <label align="left">Select a product</label>
+                        <select id="offerSelect" class="form-control offerSelect" >
+                            <option class="offer-option">Select Offer</option>
+                            {{#each offers}}
+                                <option class="offer-option" value="{{effective_interest_rate}}">{{bank_name}} - {{effective_interest_rate}}% pa</option>
+                            {{/each}}
+                        </select>
 
-    <div class="row">
-        <div style="margin:0 auto;" class="col-md-2">
+                        <label align="left">Montly deposit:</label>
+                        <input type="text" name="duration"
+                            value="{{monthlyDeposit}}" class="form-control"/>
+                        <label>Initial deposit?</label>
+                        <input type="text" name="duration"
+                               placeholder="Enter the initial deposit value" class="form-control"/>
+                    </div>
+                </form>
 
+            </div>
         </div>
     </div>
-    <form class="new-goal" role="form">
-        <div class="form-group">
-            <label align="left">Select a product</label>
-            <select id="offerSelect" class="form-control offerSelect" style="width: 300px;">
-                <option class="offer-option">Select Offer</option>
-                {{#each offers}}
-                    <option class="offer-option">{{bank_name}} - {{effective_interest_rate}}% pa</option>
-                {{/each}}
-            </select>
-            <br/>
-            <label>Initial deposit?</label>
-            <input type="text" name="duration" style="width: 300px;"
-                   placeholder="Enter the initial deposit value" class="form-control" />
-            <label align="left">Montly deposit?</label>
-            <input type="text" name="duration" style="width: 300px;"
-                   value="{{monthlyDeposit}}" class="form-control" />
-        </div>
-    </form>
 
 </template>

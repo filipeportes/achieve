@@ -4,6 +4,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 
 var goalId;
 var goal;
+var chart;
 
 Template.offerSelection.helpers({
     offers() {
@@ -17,18 +18,27 @@ Template.offerSelection.helpers({
 });
 
 Template.offerSelection.onRendered(function() {
+    buildGraph(1);
+});
 
-    goalId = FlowRouter.current().params['goalId'];
-    console.log("goalId: " + goalId);
+Template.offerSelection.events({
+    'change .offerSelect'(event) {
+        console.log(event.target.value);
+        buildGraph(parseFloat(event.target.value))
+    }
+});
 
-    goal = Goals.findOne({ _id: goalId });
-    console.log("goal: " + goal);
+function buildGraph(interest) {
 
-    var ctx = document.getElementById("chartCanvas")
-        .getContext('2d');
+    var canvas = document.getElementById("chartCanvas");
+    var ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, ctx.width, ctx.height);
+    ctx.beginPath();
 
-    if(!goal){
-        return;
+    if(chart){
+        chart.clear();
+        chart.destroy();
+        chart = null;
     }
 
     let installments = new Array();
@@ -41,13 +51,13 @@ Template.offerSelection.onRendered(function() {
     let sum = installmentValue;
     for (let i = 0; i < goal.duration; i++) {
         installments.push(sum);
-        installments2.push(sum * 1.5);
+        installments2.push(sum * (1 + interest / 10));
         labels.push(((currentDate.getMonth() + i) % 12) + 1);
         sum += installmentValue;
     }
 
     // Set the data
-    var data = {
+    let data = {
         labels: labels,
         datasets: [{
             label: "Normal",
@@ -58,80 +68,32 @@ Template.offerSelection.onRendered(function() {
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
             data: installments
-        },
-            {
-                label: "Normal",
-                fillColor: "rgba(220,220,220,0.2)",
-                strokeColor: "rgba(255,100,100,1)",
-                pointColor: "rgba(00,00,250,1)",
-                pointStrokeColor: "#fff",
-                pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(220,220,220,1)",
-                data: installments2
-            }]
+        }]
     };
 
-
-
-    new Chart(ctx)
-        .Line(data, options);
-
-});
-
-Template.offerSelection.events({
-    'change .offerSelect'(event) {
-        console.log(event);
+    if(interest > 1) {
+        data.datasets.push({
+            label: "Normal",
+            fillColor: "rgba(100,100,220,0.2)",
+            strokeColor: "rgba(100,100,250,1)",
+            pointColor: "rgba(00,00,220,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: installments2
+        });
     }
-});
+
+    chart = new Chart(ctx).Line(data, options);
+}
 
 // Set the options
-var options = {
-
-    ///Boolean - Whether grid lines are shown across the chart
-    scaleShowGridLines: true,
-
-    //String - Colour of the grid lines
-    scaleGridLineColor: "rgba(0,0,0,.05)",
-
-    //Number - Width of the grid lines
-    scaleGridLineWidth: 1,
-
-    //Boolean - Whether to show horizontal lines (except X axis)
-    scaleShowHorizontalLines: true,
-
-    //Boolean - Whether to show vertical lines (except Y axis)
-    scaleShowVerticalLines: true,
-
-    //Boolean - Whether the line is curved between points
-    bezierCurve: false,
-
-    //Number - Tension of the bezier curve between points
-    bezierCurveTension: 0.4,
-
-    //Boolean - Whether to show a dot for each point
-    pointDot: true,
-
-    //Number - Radius of each point dot in pixels
-    pointDotRadius: 4,
-
-    //Number - Pixel width of point dot stroke
-    pointDotStrokeWidth: 1,
-
-    //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
-    pointHitDetectionRadius: 20,
-
-    //Boolean - Whether to show a stroke for datasets
-    datasetStroke: true,
-
-    //Number - Pixel width of dataset stroke
-    datasetStrokeWidth: 2,
-
-    //Boolean - Whether to fill the dataset with a colour
-    datasetFill: false,
-
-    //String - A legend template
-    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
-
-    maintainAspectRatio: false
-
+const options = {
+    animation: {
+        onProgress: function(animation) {
+            progress.value = animation.animationObject.currentStep / animation.animationObject.numSteps;
+        }
+    },
+    responsive: false,
+    maintainAspectRatio: true
 };
